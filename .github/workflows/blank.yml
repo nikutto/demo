@@ -25,12 +25,11 @@ jobs:
       - name: Start build
         run: echo Hello, world!
 
-      - name: Install java
-        run: sudo apt install openjdk-11-jdk
-
-      - name: Check Java Environment
-        run: java --version
-        
+      - name: "Setup Java"
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      
       - name: Gradle build
         run: |
           ./gradlew build --debug
