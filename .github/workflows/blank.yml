@@ -29,9 +29,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-        env:
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-      
+        
       - name: Gradle build
         run: |
           ./gradlew build
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+
