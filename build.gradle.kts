@@ -23,6 +23,14 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+	// Internet Connection with OkHttp3 retrofit2 OAuth2
+	implementation("com.squareup.okhttp3:okhttp:3.8.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:3.8.1")
+    implementation("com.squareup.retrofit2:retrofit:2.3.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava:2.0.2")
+    implementation("com.squareup.retrofit2:converter-jackson:2.0.2")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -32,6 +40,7 @@ dependencies {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+	logging.captureStandardOutput(LogLevel.INFO)
 }
 
 tasks.withType<KotlinCompile> {
