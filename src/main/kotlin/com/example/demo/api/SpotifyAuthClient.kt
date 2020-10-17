@@ -1,15 +1,13 @@
 package com.example.demo.api
 
-import retrofit2.http.POST
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Field
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-
+import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.beans.factory.annotation.Autowired
-import retrofit2.Call
-
 import org.springframework.stereotype.Component
+import retrofit2.Call
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class SpotifyAuthResponse(
@@ -29,7 +27,6 @@ interface SpotifyAuthClientImpl {
     fun getTokenImpl(
         @Field("grant_type") grantType: String
     ): Call<SpotifyAuthResponse>
-
 }
 
 @Component
@@ -41,5 +38,4 @@ class SpotifyAuthClient(
     fun getToken(): Call<SpotifyAuthResponse> {
         return spotifyAuthClientImpl.getTokenImpl(spotifyApiParameter.authGrantType)
     }
-
 }
