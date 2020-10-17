@@ -25,6 +25,9 @@ jobs:
       - name: Start build.
         run: echo Hello, world!
 
+      - name: Install java?
+        run: sudo apt install openjdk-11-jre
+        
       - name: Gradle build
         run: |
           ./gradlew build --debug
