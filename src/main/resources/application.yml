@@ -1,6 +1,7 @@
 spotify:
-    auth-url: https://accounts.spotify.com
     auth-type: Basic
+    auth-url: https://accounts.spotify.com
     auth-token: ${AUTH_TOKEN}
     auth-grant-type: client_credentials
+    api-url: https://api.spotify.com
     

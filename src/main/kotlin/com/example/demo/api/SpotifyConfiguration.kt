@@ -16,7 +16,8 @@ data class SpotifyApiParameter(
     val authUrl: String,
     val authType: String,
     val authToken: String,
-    val authGrantType: String
+    val authGrantType: String,
+    val apiUrl: String
 )
 
 @Configuration
