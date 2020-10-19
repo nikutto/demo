@@ -1,22 +1,13 @@
 package com.example.demo.api
 
 import com.example.demo.api.dto.SearchArtistResponse
+import com.example.demo.api.impl.SpotifyApiClientImpl
 import okhttp3.OkHttpClient
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
-
-interface SpotifyApiClientImpl {
-
-    @GET("/v1/search?type=artist")
-    fun searchArtist(
-        @Query("q") q: String
-    ): Call<SearchArtistResponse>
-}
 
 @Component
 class SpotifyApiClient(
