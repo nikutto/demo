@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import java.net.HttpURLConnection
 
 @SpringBootTest
-class SpotifyAuthClientTest(@Autowired val spotifyAuthClient: SpotifyAuthClient) {
+class SpotifyAuthClientTests(@Autowired val spotifyAuthClient: SpotifyAuthClient) {
 
     @Test
     fun `Response for authorization is valid`() {
