@@ -1,7 +1,6 @@
 package com.example.demo.api
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
+import com.example.demo.api.dto.SearchArtistResponse
 import okhttp3.OkHttpClient
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -10,32 +9,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class Artist(
-
-    @JsonProperty("id")
-    val id: String,
-    @JsonProperty("name")
-    val name: String,
-    @JsonProperty("uri")
-    val uri: String
-)
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class Artists(
-
-    @JsonProperty("items")
-    val artists: List<Artist>
-
-)
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class SearchArtistResponse(
-
-    @JsonProperty("artists")
-    val artists: Artists
-)
 
 interface SpotifyApiClientImpl {
 
