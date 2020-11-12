@@ -1,5 +1,6 @@
 package com.example.demo.api
 
+import com.example.demo.api.dto.GetRelatedArtistsResponse
 import com.example.demo.api.dto.SearchArtistResponse
 import com.example.demo.api.impl.SpotifyApiClientImpl
 import okhttp3.OkHttpClient
@@ -40,4 +41,8 @@ class SpotifyApiClient(
     fun searchArtist(
         q: String
     ): Call<SearchArtistResponse> = spotifyApiClientImpl.searchArtist(q)
+
+    fun getRelatedArtists(
+        id: String
+    ): Call<GetRelatedArtistsResponse> = spotifyApiClientImpl.getRelatedArtists(id)
 }
