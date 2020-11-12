@@ -16,4 +16,11 @@ class SpotifyApiClientTests(@Autowired val spotifyApiClient: SpotifyApiClient) {
         assertThat(response.code()).isEqualTo(HttpURLConnection.HTTP_OK)
         assertThat(response.body()?.artists?.artists?.elementAt(0)?.name).isEqualTo(name)
     }
+
+    @Test
+    fun `Response for spotify API getRelatedArtists is valid`() {
+        val id = "1dfeR4HaWDbWqFHLkxsg1d"
+        val response = spotifyApiClient.getRelatedArtists(id).execute()
+        assertThat(response.code()).isEqualTo(HttpURLConnection.HTTP_OK)
+    }
 }
