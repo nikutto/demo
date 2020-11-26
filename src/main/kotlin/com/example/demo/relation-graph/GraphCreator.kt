@@ -11,14 +11,15 @@ class GraphCreator(
     @Autowired val spotifyApiClient: SpotifyApiClient
 ) {
 
+    // input: center artist's id, maximum number of vertices
+    // output: relation graph
     fun create(id: String, n: Int): Graph {
-        val uncheckedSet = mutableMapOf<String, Int>()
+        val uncheckedSet = mutableMapOf<String, Int>() // id -> # of appearance
         uncheckedSet[id] = 0
-        val checkedSet = mutableSetOf<String>()
+        val checkedSet = mutableSetOf<String>() // already included in graph
         val relatedArtists = mutableMapOf<String, List<Artist>>()
 
-        val graph = Graph()
-
+        // call api and confirm vertices
         for (_i in 0 until n) {
             if (uncheckedSet.isEmpty()) break
             val maxDegree: Int = uncheckedSet.maxByOrNull { it.value }!!.value
@@ -41,6 +42,8 @@ class GraphCreator(
             }
         }
 
+        // construct graph
+        val graph = Graph()
         for ((targetId, _) in relatedArtists) {
             graph.addVertex(targetId)
         }
