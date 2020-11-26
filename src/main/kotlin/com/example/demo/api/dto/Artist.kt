@@ -9,7 +9,6 @@ data class Artist(
     @JsonProperty("id")
     val id: String,
     @JsonProperty("name")
-    val name: String,
-    @JsonProperty("uri")
-    val uri: String
+    val name: String
+
 )
