@@ -60,3 +60,15 @@ tasks.withType<Detekt>().configureEach {
     // Target version of the generated JVM bytecode. It is used for type resolution.
     this.jvmTarget = "11"
 }
+
+tasks.register("testEnv") {
+	doFirst {
+		if(System.getenv("AUTH_TOKEN").isNullOrEmpty()) {
+				throw RuntimeException("You should set environtment variable \${AUTH_TOKEN} for spotify API.")
+		}
+	}
+}
+
+tasks.test {
+	dependsOn("testEnv")
+}
